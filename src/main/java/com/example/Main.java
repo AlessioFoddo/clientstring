@@ -19,6 +19,7 @@ public class Main {
 
         String stringa;
         do {
+            menu();
             stringa = scanner.nextLine();
             out.writeBytes(stringa + "\n");
 
@@ -32,5 +33,14 @@ public class Main {
         input.close();
         scanner.close();
         s.close();
+    }
+
+    public static void menu(){
+        System.out.println("\n- - - BENVENUTO - - -");
+        System.out.println("Potrai inviare messaggi al server e tramite diversi comandi sceglierai la sua risposta");
+        System.out.println("1) '^', ti verrà restituita la stringa in maiuscolo");
+        System.out.println("2) '-', ti verrà restituita la stringa in minuscolo");
+        System.out.println("3) '<', ti verrà restituita la stringa al contrario");
+        System.out.println("4) ':', ti verrà restituita il numero di caratteri nella stirnga");
     }
 }
