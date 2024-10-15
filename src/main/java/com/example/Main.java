@@ -13,21 +13,55 @@ public class Main {
         System.out.println("Il client si è collegato");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Inserisci una stringa: ");
         Scanner input = new Scanner(s.getInputStream());
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
+        int scelta;
 
         String stringa;
         do {
             menu();
-            stringa = scanner.nextLine();
-            out.writeBytes(stringa + "\n");
-
-            if (input.hasNextLine()) {
-                String risposta = input.nextLine();
-                System.out.println("Risposta del server: " + risposta);
+            String StrScelta = scanner.nextLine();
+            scelta = Integer.parseInt(StrScelta);
+            switch (scelta) {
+                case 0:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Server chiuso");
+                    break;
+                case 1:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Inserisci una stringa: ");
+                    stringa = scanner.nextLine();
+                    out.writeBytes(stringa + "\n");
+                    break;
+                case 2:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Inserisci una stringa: ");
+                    stringa = scanner.nextLine();
+                    out.writeBytes(stringa + "\n");
+                    break;
+                case 3:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Inserisci una stringa: ");
+                    stringa = scanner.nextLine();
+                    out.writeBytes(stringa + "\n");
+                    break;
+                case 4:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Inserisci una stringa: ");
+                    stringa = scanner.nextLine();
+                    out.writeBytes(stringa + "\n");
+                    break;
+            
+                default:
+                    out.writeBytes(StrScelta + "\n");
+                    System.out.println("Scegli per bene");
+                    break;
             }
-        } while (!stringa.equals("!"));
+
+            String risposta = input.nextLine();
+            System.out.println("Risposta del server: " + risposta);
+
+        } while (scelta != 0);
         
         out.close();
         input.close();
@@ -38,9 +72,9 @@ public class Main {
     public static void menu(){
         System.out.println("\n- - - BENVENUTO - - -");
         System.out.println("Potrai inviare messaggi al server e tramite diversi comandi sceglierai la sua risposta");
-        System.out.println("1) '^', ti verrà restituita la stringa in maiuscolo");
-        System.out.println("2) '-', ti verrà restituita la stringa in minuscolo");
-        System.out.println("3) '<', ti verrà restituita la stringa al contrario");
-        System.out.println("4) ':', ti verrà restituita il numero di caratteri nella stirnga");
+        System.out.println("1)Ti verrà restituita la stringa in maiuscolo");
+        System.out.println("2)Ti verrà restituita la stringa in minuscolo");
+        System.out.println("3)Ti verrà restituita la stringa al contrario");
+        System.out.println("4)Ti verrà restituita il numero di caratteri nella stirnga");
     }
 }
